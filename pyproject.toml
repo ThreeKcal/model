@@ -26,5 +26,5 @@ tests = [
     "pytest>=8.3.3",
 ]
 
-[tool.setuptools]
-package-dir = {"" = "src"}
+[tool.pytest.ini_options]
+pythonpath = "src"
