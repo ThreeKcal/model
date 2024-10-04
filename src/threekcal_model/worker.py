@@ -18,15 +18,14 @@ def run():
 
     if result is None:
         data = {"message":f"❌예측할 모델이 없습니다❌"}
-        print(data)
     else:
+        num = result['num']
         from threekcal_model.model import prediction
         prediction = prediction()
         prediction_result=prediction['label']
         prediction_score =prediction['score']
         prediction_time = datetime.now(timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
-        log_data=[prediction_result,prediction_score,prediction_time]
+        log_data=[num,prediction_result,prediction_score,prediction_time]
     print(response.text)
     print(data)
     return logdata
-run() 
