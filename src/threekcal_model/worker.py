@@ -19,7 +19,6 @@ def run():
         data = {"message":f"❌예측할 모델이 없습니다❌"}
         print(data)
     else:
-        num = result['num']
         from threekcal_model.model import prediction
         prediction = prediction()
         prediction_result=prediction['label']
