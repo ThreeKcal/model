@@ -7,8 +7,7 @@ authors = [
 ]
 dependencies = [
     "transformers>=4.45.1",
-    "tensorflow>=2.17.0",
-    "tf-keras>=2.17.0",
+    "torch>=2.4.1",
 ]
 requires-python = ">=3.11"
 readme = "README.md"
@@ -22,5 +21,10 @@ build-backend = "pdm.backend"
 [tool.pdm]
 distribution = true
 
-[project.scripts]
-prediction='threekcal_model.model:prediction'
+[tool.pdm.dev-dependencies]
+tests = [
+    "pytest>=8.3.3",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}

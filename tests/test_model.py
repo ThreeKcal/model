@@ -1,4 +1,4 @@
-from threekcal_model.model import prediction
+from src.threekcal_model.model import prediction
 
 def test_prediction():
     a="That dog is very cute"
