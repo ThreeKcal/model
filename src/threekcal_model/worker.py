@@ -1,3 +1,5 @@
+#이것은 사용중이지 않은 코드입니다!!!!!
+
 import requests
 import os
 from threekcal_model.db import select, dml

@@ -17,8 +17,10 @@ def read_item(user: str, comments: str):
     #모델 불러오기
     model = pipeline("text-classification", model="michellejieli/emotion_text_classifier")
     
+    #모델 입히기
     prediction = model(f"{comments}")
 
+    #DB에 저장하기
     import pymysql.cursors
     import os
     
@@ -27,11 +29,15 @@ def read_item(user: str, comments: str):
     import jigeum.seoul
     from threekcal_model.db import dml
     insert_row = dml(sql, comments, jigeum.seoul.now(), user)
-    
+    label = get_label(prediction)
+    score = get_score(prediction)
+
+
+    #출력값
     return {
             "comments": comments,
             "request_time": jigeum.seoul.now(),
             "request_user": user, 
-            "label": prediction[0]['label'],
-            "score": prediction[0]['score']
+            "label": label,
+            "score": score
             }
