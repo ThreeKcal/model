@@ -1,15 +1,28 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
-import requests
 
-st.title('3kcal 텍스트 감정 분류 예측 관제 시스템')
-
-st.markdown('### 페이지 별 기능 설명')
-
-st.markdown('#### 1.텍스트 업로드: 텍스트를 입력해서 DB에 저장하는 페이지')
-
-st.markdown('#### 2.커멘트 라벨: 잘못 예측한 comment에 대해서 remark와 label을 달아주는 페이지'
+st.set_page_config(
+    page_title="Three Kcal Team Portfolio",
+    page_icon="👋",
 )
-    
-st.markdown('#### 3.결과 통계: 예측에 대해서 정오답에 대한 통계를 보여주는 페이지') 
+
+st.write("# Welcome to Three kcal! 👋")
+
+st.sidebar.success("Select a demo above.")
+
+st.markdown(
+    """
+    Streamlit is an open-source app framework built specifically for
+    Machine Learning and Data Science projects.
+    **👈 Select a demo from the sidebar** to see some examples
+    of what Streamlit can do!
+    ### Want to learn more?
+    - Check out [streamlit.io](https://streamlit.io)
+    - Jump into our [documentation](https://docs.streamlit.io)
+    - Ask a question in our [community
+        forums](https://discuss.streamlit.io)
+    ### See more complex demos
+    - Use a neural net to [analyze the Udacity Self-driving Car Image
+        Dataset](https://github.com/streamlit/demo-self-driving)
+    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+"""
+)
