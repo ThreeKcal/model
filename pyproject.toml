@@ -5,7 +5,11 @@ description = "main model for ML service"
 authors = [
     {name = "ThreeKcal", email = "raecrowned@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "transformers>=4.45.1",
+    "tensorflow>=2.17.0",
+    "tf-keras>=2.17.0",
+]
 requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
@@ -17,3 +21,6 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
+
+[project.scripts]
+prediction='threekcal_model.model:prediction'
