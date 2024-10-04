@@ -22,6 +22,7 @@ def run():
         num = result['num']
         from threekcal_model.model import prediction
         prediction = prediction(result['comments'])
+        print(prediction)
         prediction_result=prediction['label']
         prediction_score =prediction['score']
         prediction_time = datetime.now(timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
@@ -29,3 +30,6 @@ def run():
     print(response.text)
     print(data)
     return logdata
+
+
+run()
