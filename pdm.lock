@@ -5,7 +5,7 @@
 groups = ["default", "test"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:99fa9c1ab411584bd3db424385a2f88d7b0fc221395503d7a9b73454b787062c"
+content_hash = "sha256:1dc8ff81c114e9f3674f94e8510b3b91d63d1156054ebf8f15e73a05cf1050b7"
 
 [[metadata.targets]]
 requires_python = ">=3.11"
@@ -683,6 +683,20 @@ groups = ["test"]
 files = [
     {file = "iniconfig-2.0.0-py3-none-any.whl", hash = "sha256:b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374"},
     {file = "iniconfig-2.0.0.tar.gz", hash = "sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3"},
+]
+
+[[package]]
+name = "jigeum"
+version = "1.0.2"
+requires_python = ">=3.9"
+summary = "jigeum seoul now"
+groups = ["default"]
+dependencies = [
+    "pytz>=2024.2",
+]
+files = [
+    {file = "jigeum-1.0.2-py3-none-any.whl", hash = "sha256:63d016eeda646effae819f7ec696d235527674c08c75ba6d634216ff30ebd0df"},
+    {file = "jigeum-1.0.2.tar.gz", hash = "sha256:da976a3b90cc956d7e846dc8b25a7e74a9768cddb78def53490c6451b9bdeb42"},
 ]
 
 [[package]]

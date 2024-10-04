@@ -6,7 +6,7 @@ def get_conn():
                             user='master',
                             password='1234',
                             database='modeldb',
-                            port= int(os.getenv('DB_PORT', 53306)),
+                            port=int(os.getenv("DB_PORT", "53306")),
                             cursorclass=pymysql.cursors.DictCursor)
 
     return conn
