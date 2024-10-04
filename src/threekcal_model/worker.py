@@ -25,9 +25,8 @@ def run():
         prediction_result=prediction['label']
         prediction_score =prediction['score']
         prediction_time = datetime.now(timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
-    
-    
+        log_data=[prediction_result,prediction_score,prediction_time]
     print(response.text)
     print(data)
-    return True
+    return logdata
  
