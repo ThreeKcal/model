@@ -14,6 +14,7 @@ def run():
             sql = "SELECT num,comments, request_user, request_time, prediction_result, prediction_score, prediction_time WHERE prediction_result IS NULL LIMIT 1"
             cursor.execute(sql)
             result = cursor.fetchone()
+    print(result['num'])
 
     if result is None:
         data = {"message":f"❌예측할 모델이 없습니다❌"}
@@ -28,4 +29,4 @@ def run():
     print(response.text)
     print(data)
     return logdata
- 
+run() 
