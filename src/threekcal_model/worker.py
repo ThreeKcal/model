@@ -25,19 +25,9 @@ def run():
         prediction_result=prediction['label']
         prediction_score =prediction['score']
         prediction_time = datetime.now(timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
-
-        connection = get_connection()
-        with connection:
-            with connection.cursor() as cursor:
-                sql = """UPDATE comments
-                         SET prediction_result=%s,
-                             prediction_score=%s,
-                             prediction_time=%s
-                         WHERE num = %s"""
-                cursor.execute(sql,(prediction_result, prediction_score, prediction_time, num))
-                connection.commit()
-    data = {f"prediction_result:{prediction_result}, prediction_score:{prediction_score}"}
+    
+    
     print(response.text)
     print(data)
     return True
-    
+ 
