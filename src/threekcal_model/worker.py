@@ -11,7 +11,7 @@ def run():
     connection = get_connection()
     with connection:
         with connection.cursor() as cursor:
-            sql = "SELECT num, comments, request_user, request_time, prediction_result, prediction_score, prediction_time FROM comments WHERE prediction_result IS NULL ORDER BY num ASC LIMIT 1"
+            sql = "SELECT num, comments, request_user, request_time, prediction_result, prediction_score, prediction_time FROM comments ORDER BY num ASC LIMIT 1"
             cursor.execute(sql)
             result = cursor.fetchone()
     print(result)
