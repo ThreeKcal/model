@@ -25,6 +25,7 @@ def run():
         #num_list = []
         log_data=[]
         for i in range(len(result)):
+            num = result[i]['num']
             prediction = prediction(result[i]['comments'])
             print(prediction)
             prediction_result=prediction[0]['label']
