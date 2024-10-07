@@ -18,3 +18,12 @@ $ source .venv/bin/activate
 $ pip install .
 $ streamlit run src/threekcal_model/streamlit/main.py --server.port 9000
 ```
+
+## Dev Commands
+- 테스팅용 `uvicorn` 서버 런칭
+```bash
+$ chmod u+x run.sh
+$ ./run.sh
+```
+
+- 
