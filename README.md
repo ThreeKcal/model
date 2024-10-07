@@ -1,6 +1,7 @@
 # model
 ## Overview
 ML 어플리케이션 서비스를 위한 기본 리포지토리
+
 팀 프로젝트 #3: 팀 ThreeKcal
 
 `DistilRoBERTa` 기반의 text classifier 모델인 [michellejieli/emotion_text_classifier](https://huggingface.co/michellejieli/emotion_text_classifier) 을 통해:
@@ -25,5 +26,3 @@ $ streamlit run src/threekcal_model/streamlit/main.py --server.port 9000
 $ chmod u+x run.sh
 $ ./run.sh
 ```
-
-- 
