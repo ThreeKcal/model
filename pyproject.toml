@@ -8,6 +8,7 @@ authors = [
 dependencies = [
     "transformers>=4.45.1",
     "torch>=2.4.1",
+    "pytz>=2024.2",
 ]
 requires-python = ">=3.11"
 readme = "README.md"
