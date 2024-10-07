@@ -20,14 +20,17 @@ def run():
         data = {"message":f"❌예측할 모델이 없습니다❌"}
         print(data)
     else:
-        num = int(result['num'])
         from threekcal_model.model import prediction
-        prediction = prediction(result['comments'])
-        print(prediction)
-        prediction_result=prediction[0]['label']
-        prediction_score =prediction[0]['score']
-        prediction_time = datetime.now(timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
-        log_data=[num,prediction_result,prediction_score,prediction_time]
+        #num = result['num']
+        #num_list = []
+        log_data=[]
+        for i in range(len(result)):
+            prediction = prediction(result[i]['comments'])
+            print(prediction)
+            prediction_result=prediction[0]['label']
+            prediction_score =prediction[0]['score']
+            prediction_time = datetime.now(timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
+            log_data.append([num,prediction_result,prediction_score,prediction_time])
     print(log_data)
     print("*"*33)
     return log_data
