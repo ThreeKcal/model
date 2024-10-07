@@ -26,10 +26,12 @@ def run():
         log_data=[]
         for i in range(len(result)):
             num = result[i]['num']
-            prediction = prediction(result[i]['comments'])
+            print(result[i]['comments'])
+            print("*"*33)
+            predict = prediction(result[i]['comments'])
             print(prediction)
-            prediction_result=prediction[0]['label']
-            prediction_score =prediction[0]['score']
+            prediction_result=predict[0]['label']
+            prediction_score =predict[0]['score']
             prediction_time = datetime.now(timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')
             log_data.append([num,prediction_result,prediction_score,prediction_time])
     print(log_data)
