@@ -11,9 +11,10 @@ ML 어플리케이션 서비스를 위한 기본 리포지토리
 
 ![Blank_diagram_-_Page_1_2](https://github.com/user-attachments/assets/2c2cfbd5-fa7e-4cee-858b-57ccb84e6715)
 
-## Dev 커맨드
+## Usage
 - `Streamlit` 어플리케이션 런칭
 ```bash
+$ source .venv/bin/activate
+$ pip install .
 $ streamlit run src/threekcal_model/streamlit/main.py --server.port 9000
 ```
-
