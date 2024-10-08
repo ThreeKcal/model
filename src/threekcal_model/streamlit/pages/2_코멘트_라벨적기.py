@@ -6,8 +6,8 @@ from requests.exceptions import ConnectionError, RequestException
 st.title('코멘트 & 라벨 적기')
 
 def load_data():
-    url = 'http://127.0.0.1:8000/all'
-    #url = 'http://54.180.132.11:8001/all'
+    #url = 'http://127.0.0.1:8000/all'
+    url = 'http://54.180.132.11:8001/all'
     try:
         r = requests.get(url)
         d = r.json()
