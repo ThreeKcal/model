@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import requests
 
 st.title('요청자, 처리자간의 통계')
