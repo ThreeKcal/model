@@ -11,7 +11,9 @@ def load_data():
     r = requests.get(url)
     d = r.json()
     return d
-
+d=load_data()
+df = pd.DataFrame(d)
+df
 def show_stats():
     pass
 
@@ -22,4 +24,3 @@ def show_stats():
 #df = pd.DataFrame(data)
 
 st.write("현재까지의 모델 결과 통계입니다.")
-show_stats()
