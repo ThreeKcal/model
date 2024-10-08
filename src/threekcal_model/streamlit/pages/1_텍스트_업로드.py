@@ -1,14 +1,27 @@
 import streamlit as st
-import pandas as pd
 import requests
+import json
 
-st.title('요청자, 처리자간의 통계')
+user = st.text_input("유저ID", "")
+title = st.text_input("리뷰", "")
 
 def load_data():
-    url = 'http://43.202.66.118:8077/all'
-    r = requests.get(url)
-    d = r.json()
-    return d
+    if user and title is not None:
+        headers = {
+                    'accept': 'application/json',
+                    }
 
-data = load_data()
-df = pd.DataFrame(data)
+        params = {
+                    'user': f'{user}',
+                    'comments': f'{title}',
+}
+
+        response = requests.get('http://127.0.0.1:8000/comments/', params=params, headers=headers)
+
+        if response.status_code == 200:
+            data = response.json()
+            label = data['label']
+            score = data['score']
+            st.write(f"{user}의 기분은...?", f"{label}, 감정의 정확도는 {score}")
+
+load_data()
