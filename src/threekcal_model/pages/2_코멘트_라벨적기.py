@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
+import numpy as np
 
 st.title('요청자, 처리자간의 통계')
 
@@ -12,7 +13,16 @@ def load_data():
 
 data = load_data()
 df = pd.DataFrame(data)
-st.write(df[(df['label'].isnull()) | (df['remark'].isnull())])
+#st.write(df[(df['label'].isnull()) | (df['remark'].isnull())])
+selected=df['request_user'].unique()
+selected=np.append(selected,"없음")
+selected_label = st.selectbox("입력 유저 선택", selected)
+if selected_label == "없음":
+    st.write(st.write(df[(df['label'].isnull()) | (df['remark'].isnull())]))
+else :
+    filtered_df = df[df['request_user'] == selected_label]
+st.write(f"{selected_label}의 필터링된 데이터")
+st.dataframe(filtered_df)
 
 num = st.text_input("num", "")
 remark = st.text_input("의견을 남겨주세요", "")
