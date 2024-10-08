@@ -10,7 +10,7 @@ import numpy as np
 st.title('요청자, 처리자간의 통계')
 
 def load_data():
-    url = 'http://43.202.66.118:8077/all'
+    url = 'http://http://54.180.132.11:8001/all'
     r = requests.get(url)
     d = r.json()
     return d
