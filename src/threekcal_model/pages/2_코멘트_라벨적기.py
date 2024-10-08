@@ -12,7 +12,7 @@ def load_data():
 
 data = load_data()
 df = pd.DataFrame(data)
-st.write(df)
+st.write(df[(df['label'].isnull()) | (df['remark'].isnull())])
 
 num = st.text_input("num", "")
 remark = st.text_input("의견을 남겨주세요", "")
