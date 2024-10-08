@@ -29,3 +29,16 @@ def read_item(user: str, comments: str):
             "request_time": jigeum.seoul.now(),
             "request_user": user, 
             }
+
+@app.get("/all/")
+def read_item():
+    from threekcal_model.db import get_conn
+    conn = get_conn()
+
+    with conn:
+        with conn.cursor() as cursor:
+            sql = "SELECT * FROM comments"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+
+    return result
