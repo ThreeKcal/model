@@ -2,30 +2,39 @@ import streamlit as st
 import pandas as pd
 import requests
 
-st.title('요청자, 처리자간의 통계')
+st.title('코멘트 & 라벨 적기')
 
 def load_data():
-    url = 'http://127.0.0.1:8000/all'
-    #url = 'http://54.180.132.11:8001/all'
+    #url = 'http://127.0.0.1:8000/all'
+    url = 'http://54.180.132.11:8001/all'
     r = requests.get(url)
     d = r.json()
     return d
 
-def get_table():
+def get_table(num, remark, label):
     data = load_data()
     df = pd.DataFrame(data)
-    df.head(10)
+    df = df.head(10)
     none_remark_df = df[df['remark'].isnull()]
     none_remark_df = none_remark_df.reset_index(drop=True)
     html_table = none_remark_df.to_html(index=False)
-    # Streamlit에서 HTML로 출력
-    st.write(html_table, unsafe_allow_html=True)
 
-get_table()
-
-num = st.text_input("num", "")
-remark = st.text_input("의견을 남겨주세요", "")
-label = st.text_input("정답", "")
+    styled_html_table = f"""
+<style>
+    table {{
+        width = 60%;
+        border-collapse: collapse;
+        font-size: 14px;
+}}
+    th, td {{
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }}
+</style>
+{html_table}
+""" # Streamlit에서 HTML로 출력
+    st.write(styled_html_table, unsafe_allow_html=True)
 
 def input_label():
     import pymysql.cursors
@@ -50,4 +59,11 @@ def input_label():
         print(f"Error: {e}")
     
 
+# page start
+
+num = st.text_input("코멘트 넣고 싶은 줄의 num을 입력해 주세요", "")
+remark = st.text_input("결과에 대한 코멘트를 남겨주세요", "")
+label = st.text_input("본인이 보기에 해당 입력값의 실제 감정 label은? 정답치로 사용됩니다.", "")
+
 input_label()
+get_table(num, remark, label)
