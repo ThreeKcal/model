@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-COPY src/threekcal_model/streamlit/main.py /code/
+COPY streamlit/main.py /code/
 RUN pip install --no-cache-dir --upgrade git+https://github.com/ThreeKcal/model.git@complt2/streamlit
 
 EXPOSE 8501
