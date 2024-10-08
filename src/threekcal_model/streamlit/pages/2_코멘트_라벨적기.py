@@ -1,15 +1,26 @@
 import streamlit as st
 import pandas as pd
 import requests
+from requests.exceptions import ConnectionError, RequestException
 
 st.title('코멘트 & 라벨 적기')
 
 def load_data():
     url = 'http://127.0.0.1:8000/all'
     #url = 'http://54.180.132.11:8001/all'
-    r = requests.get(url)
-    d = r.json()
-    return d
+    try:
+        r = requests.get(url)
+        d = r.json()
+        return d
+
+    except ConnectionError:
+        # 열 이름 리스트
+        columns = ['num', 'comments', 'request_time', 'request_user', 'prediction_result', 'prediction_score', 'prediction_time', 'remark', 'label']
+
+        # 빈 데이터프레임 생성
+        df = pd.DataFrame(columns=columns)
+        st.write(df)
+        return None
 
 # request_user 선택
 def select_request_user(unique_id):
@@ -103,13 +114,17 @@ def input_label(user, num):
         st.error(f"Error: {e}")
 
 # Streamlit 애플리케이션 실행
-if __name__ == "__main__":
-    # 고유한 키 식별자를 사용하여 사용자와 num을 선택
-    selected_user = select_request_user("user_table_1")
-    selected_num = select_num(selected_user, "num_table_1")
+try:
+    if __name__ == "__main__":
+        # 고유한 키 식별자를 사용하여 사용자와 num을 선택
+        selected_user = select_request_user("user_table_1")
+        selected_num = select_num(selected_user, "num_table_1")
 
-    # 선택한 값에 맞는 테이블을 보여줌
-    show_table(selected_user, "table_1")
+        # 선택한 값에 맞는 테이블을 보여줌
+        show_table(selected_user, "table_1")
 
-    # 데이터를 업데이트하는 입력 부분 (num 필드 포함)
-    input_label(selected_user, selected_num)
+        # 데이터를 업데이트하는 입력 부분 (num 필드 포함)
+        input_label(selected_user, selected_num)
+
+except Exception as e:
+    st.error("서버가 불안정하여 DB에 연결할 수 없습니다. 나중에 다시 시도해주세요.")
