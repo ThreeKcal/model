@@ -39,7 +39,7 @@ ML 어플리케이션 서비스를 위한 기본 리포지토리
 - `prediction_score`: 모델이 자체적으로 반환한 예측 스코어 입니다. 본 어플리케이션은 특히 통계 데이터 분석에 사용됩니다.
 
 
-## Usage
+### Usage
 - `fastapi` 서버 런칭
 ```bash
 $ uvicorn src/threekcal_model/api:app --host 0.0.0.0 --port 8000
@@ -49,3 +49,13 @@ $ uvicorn src/threekcal_model/api:app --host 0.0.0.0 --port 8000
 ```bash
 $ streamlit run src/threekcal_model/streamlit/main.py --server.port 9000
 ```
+
+## 개발 관련 사항
+- 타임라인
+
+
+### `model` 리포지토리 코드 관련 사항
+- 
+
+### `troubleshooting`
+- 본 리포지토리의 `issues`, `pull request` 쪽을 참조해 주세요.
