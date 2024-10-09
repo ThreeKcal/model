@@ -13,7 +13,7 @@ COPY  ./requirements.txt /code/requirements.txt
 
 COPY  src/threekcal_model/main.py /code/
 
-COPY  src/threekcal_model/pages/ /code/
+COPY  src/threekcal_model/pages/ /code/pages/
 
 RUN pip install -r requirements.txt
 
