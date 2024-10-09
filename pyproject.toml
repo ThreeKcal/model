@@ -12,7 +12,7 @@ dependencies = [
     "matplotlib>=3.9.2",
     "scikit-learn>=1.5.2",
     "seaborn>=0.13.2",
-    "threekcal-model @ git+https://github.com/ThreeKcal/model.git@0.1.0/pipstreamlit",
+    "threekcal-model @ git+https://github.com/ThreeKcal/model.git@0.2.0/pipstreamlit",
 ]
 requires-python = ">=3.11"
 readme = "README.md"
