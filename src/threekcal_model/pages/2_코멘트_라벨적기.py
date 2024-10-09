@@ -90,10 +90,18 @@ def input_label(user, num):
     import pymysql.cursors
     import os
     from threekcal_model.db import get_conn
-
+    label_list=["anger","disgusting","fear","joy","neutral","sadness","surprise"]
+    
     # remark와 label 입력을 위한 text input
     remark = st.text_input("결과에 대한 코멘트를 남겨주세요", key="remark_input_key")
-    label = st.text_input("본인이 보기에 해당 입력값의 실제 감정 label은?", key="label_input_key")
+    #label = st.text_input("본인이 보기에 해당 입력값의 실제 감정 label은?", key="label_input_key")
+    label = st.selectbox(
+        "감정 선택",
+        label_list,
+        index=None,
+        placeholder="감정을 선택해주세요.",
+        key="label_input_key"  # 고유한 key 값 설정
+    )
 
     try:
         if st.button("Submit", key="submit_button_key"):
@@ -126,5 +134,5 @@ try:
         # 데이터를 업데이트하는 입력 부분 (num 필드 포함)
         input_label(selected_user, selected_num)
 
-except Exception as e:
+except ConnectionError as e:
     st.error("서버가 불안정하여 DB에 연결할 수 없습니다. 나중에 다시 시도해주세요.")
