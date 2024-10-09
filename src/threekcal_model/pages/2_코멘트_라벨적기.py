@@ -45,7 +45,11 @@ def select_request_user(unique_id):
 def select_num(user, unique_id):
     data = load_data()
     df = pd.DataFrame(data)
-    df = df[df['remark'].isnull()]
+
+    # 'remark'가 null이고 predict값이 null이 아닌  데이터만 필터링
+    df = df[(df['remark'].isnull())&df['prediction_result'].notnull()]
+    #df = df[df['remark'].isnull()]
+
     # 선택된 user에 따라 num 값을 필터링
     if user != "모든 사용자":
         filtered_df = df[df['request_user'] == user]
@@ -70,7 +74,9 @@ def show_table(user, unique_id):
     df = pd.DataFrame(data)
 
     # 'remark'가 null인 데이터만 필터링
-    df = df[df['remark'].isnull()]
+    #df = df[df['remark'].isnull()]
+    # 'remark'가 null이고 predict값이 null이 아닌  데이터만 필터링
+    df = df[(df['remark'].isnull())&df['prediction_result'].notnull()]
 
     # 사용자가 선택한 user와 num에 따라 데이터 필터링
     if user != "모든 사용자":
