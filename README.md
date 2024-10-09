@@ -13,8 +13,8 @@ ML 어플리케이션 서비스를 위한 기본 리포지토리
 ![Blank_diagram_-_Page_1_2](https://github.com/user-attachments/assets/2c2cfbd5-fa7e-4cee-858b-57ccb84e6715)
 
 ## Features
-### `streamlit` 어플리케이션 시연 모습
-- `텍스트 업로드` 이용자가 `username`과 `comment`를 입력해 데이터베이스로 전송시킵니다
+### `streamlit` [어플리케이션](http://54.180.132.11:8002/) 시연 모습
+- `텍스트 업로드` 페이지: 이용자가 `username`과 `comment`를 입력해 데이터베이스로 전송시킵니다
 ![text_uploadpage](https://github.com/user-attachments/assets/1099ff86-8491-4002-b375-5f0dbe3e8bfc)
 
 - `코멘트 라벨` 페이지: 전체 혹은 `username` 기준으로 추려낸 코멘트에 관리자가 실제 `label` 값 및 추가 사항을 입력할 수 있습니다
@@ -25,10 +25,11 @@ ML 어플리케이션 서비스를 위한 기본 리포지토리
 
 
 ## Usage
-
-### Streamlit
+- `steamlit` 서버 런칭
 ```bash
 streamlit run src/threekcal_model/streamlit/main.py --server.port 9000
 ```
+
+
 
 ## Complete
