@@ -2,7 +2,7 @@ import pymysql.cursors
 import os
 
 def get_conn():
-    conn = pymysql.connect(host=os.getenv("DB", "127.0.0.1"),
+    conn = pymysql.connect(host=os.getenv("DB", "172.17.0.1"),
                             user='master',
                             password='1234',
                             database='modeldb',
