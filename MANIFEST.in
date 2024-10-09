@@ -1,0 +1,3 @@
+recursive-include src *.jpg
+recursive-include src *.jpeg
+recursive-include src *.png

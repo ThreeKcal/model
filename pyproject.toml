@@ -1,0 +1,35 @@
+[project]
+name = "threekcal_model"
+version = "0.4.0"
+description = "main model for ML service"
+authors = [
+    {name = "ThreeKcal", email = "raecrowned@gmail.com"},
+]
+dependencies = [
+    "requests>=2.32.3",
+    "streamlit>=1.39.0",
+    "pandas>=2.2.3",
+    "matplotlib>=3.9.2",
+    "scikit-learn>=1.5.2",
+    "seaborn>=0.13.2",
+    "threekcal-model @ git+https://github.com/ThreeKcal/model.git@0.2.0/pipstreamlit",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=8.3.3",
+    "pytest-cov>=5.0.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
