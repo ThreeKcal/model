@@ -28,3 +28,16 @@ st.markdown(
     텍스트 업로드 페이지를 이용하실때 리뷰 부분은 영어로만 작성해주세요! 
     """
 )
+
+
+st.subheader("Program Structure and Data flow")
+
+image_path=os.path.join(os.path.dirname(file_path),"pages/images/datastructure.jpeg")
+
+st.image(image_path)
+
+st.markdown(
+    """
+    전체적인 앱의 구조와 데이터의 흐름  구조를 보여주는 그림입니다!
+    """
+)
