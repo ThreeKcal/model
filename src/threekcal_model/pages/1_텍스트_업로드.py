@@ -12,7 +12,7 @@ def load_data():
             params = {'user': f'{user}', 'comments': f'{title}'}
             
             try:
-                response = requests.get('http://54.181.132.11:8000/comments/', params=params, headers=headers)
+                response = requests.get('http://54.180.132.11:8000/comments/', params=params, headers=headers,timeout=7)
 
                 if response.status_code == 200:
                     st.write(f"유저ID [{user}]의 리뷰 \"{title}\"가 성공적으로 업로드 되었습니다!")
