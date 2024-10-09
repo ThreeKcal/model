@@ -7,6 +7,7 @@ from sklearn.metrics import precision_recall_curve, average_precision_score, cla
 from sklearn.preprocessing import label_binarize
 import numpy as np
 import random
+import os
 
 def load_data():
     url = 'http://54.180.132.11:8001/all'
@@ -24,6 +25,31 @@ try:
 
     st.subheader("최종 데이터")
     st.dataframe(df)
+
+    # 파이 차트 
+    st.subheader("전체 정오답율 현황 및 감정별 정오답율 현황")
+    
+    fig, ax = plt.subplots()
+    adf=df.copy()
+    fadf =adf[adf['label'].notnull()]
+    fadf['correct']=np.where(fadf['label']==fadf['prediction_result'],1,0)
+    
+    options = ["Total"] + fadf['label'].unique().tolist()
+    selected_label = st.selectbox("감정 선택", options)
+    
+    if selected_label == "Total":
+        counts = fadf['correct'].value_counts()
+        ax.pie(counts, labels=['wrong','correct'],autopct='%1.1f%%',colors=['#ff9999','#66b3ff'])    
+        ax.set_title(f'{selected_label} Correct and Incorrect Ratio')
+        ax.axis('equal')  # 원형 유지
+        st.pyplot(fig)
+    else :
+        counts = fadf[fadf['label']==selected_label]['correct'].value_counts().reindex([0,1], fill_value=0)
+        ax.pie(counts, labels=['wrong','correct'],autopct='%1.1f%%',colors=['#ff9999','#66b3ff'])
+        ax.set_title(f'{selected_label} Correct and Incorrect Ratio')
+        ax.axis('equal')  # 원형 유지
+        st.pyplot(fig)
+
 
     st.subheader("Confusion Matrix & Heatmap")
     fig, ax = plt.subplots()
@@ -170,8 +196,30 @@ try:
 # ROC curve를 사용하려면 prediction_score를 가져올 때 모든 감정 카테고리별 예측 가능도 점수를 가져와야 함 y_true에 값에는 실제 레이블 값에 대하여 encoder로 fit 한 더미변수 y_pred에는y_true 행의 값마다 카테고리별 속할 확률이 적혀 있어야 함 현재 데이터셋으로는 불가능 
 
 except requests.exceptions.ConnectTimeout:
+    st.write("서버와 연결이 되지 않아 빈 데이터프레임을 출력합니다.")
     data = []  # 빈 데이터 설정
     df = pd.DataFrame(data)
-    df
+    st.dataframe(df)
     # 원래 출력되는 통계 화면 사진 
-    st.write("서버와 연결이 되지 않아 빈 데이터프레임을 출력합니다.")
+    st.write("서버와 정상적인 연결이 되었을 때 표시되는 통계결과를  이미지로 출력 합니다.")     
+    file_path=__file__
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과0.png")
+    st.image(image_path)
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과1.png")
+    st.image(image_path)
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과2.png")
+    st.image(image_path)
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과3.png")
+    st.image(image_path)
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과4.png")
+    st.image(image_path)
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과5.png")
+    st.image(image_path)
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과6.png")
+    st.image(image_path)
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과7.png")
+    st.image(image_path)
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과8.png")
+    st.image(image_path)
+    image_path=os.path.join(os.path.dirname(file_path),"images/통계결과9.png")
+    st.image(image_path)

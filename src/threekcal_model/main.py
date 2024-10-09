@@ -1,28 +1,30 @@
 import streamlit as st
+import os
 
 st.set_page_config(
     page_title="Three Kcal Team Portfolio",
     page_icon="👋",
 )
 
-st.write("# Welcome to Three kcal! 👋")
+st.write("#  팀 3kcal 감정 분석 모델 관리 페이지에 오신걸 환영합니다. 👋")
 
-st.sidebar.success("Select a demo above.")
+file_path=__file__
+image_path=os.path.join(os.path.dirname(file_path),"pages/images/mainpage1.jpg")
+
+st.image(image_path)
 
 st.markdown(
     """
-    Streamlit is an open-source app framework built specifically for
-    Machine Learning and Data Science projects.
-    **👈 Select a demo from the sidebar** to see some examples
-    of what Streamlit can do!
-    ### Want to learn more?
-    - Check out [streamlit.io](https://streamlit.io)
-    - Jump into our [documentation](https://docs.streamlit.io)
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### See more complex demos
-    - Use a neural net to [analyze the Udacity Self-driving Car Image
-        Dataset](https://github.com/streamlit/demo-self-driving)
-    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-"""
+    팀 3kcal 모델 관리 페이지에는 메인 페이지 
+
+    예측 하고싶은 텍스트를 업로드하는 "텍스트 업로드 페이지"   
+
+    예측된 결과값을 바탕으로 코멘트와 라벨을 작성하는 "코멘트 및  라벨적기" 페이지
+  
+    입력된 데이터를 바탕으로 머신러닝 정답율과 관련 다양한 통계를 볼 수 있는 "결과 통계" 페이지로 구성되어 있습니다.
+    
+    👋주의 사항!👋 
+
+    텍스트 업로드 페이지를 이용하실때 리뷰 부분은 영어로만 작성해주세요! 
+    """
 )
