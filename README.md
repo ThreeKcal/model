@@ -28,7 +28,11 @@ ML 어플리케이션 서비스를 위한 기본 리포지토리
 
 본 어플리케이션은 `fastapi`와 `airflow`, `maradb`, `pyspark`를 필요로 하는 `streamlit` 웹 어플리케이션입니다.
 
-사용자가 텍스트 업로드 페이지로부터 보낸 입력은 `streamlit`에서 `fastapi`로 전달되어 `mariadb`기반 데이터베이스에 저장되고, 이렇게 일차적으로 저장된 값을 `airflow`가 주기적으로 읽어들여 모델을 적용해 나온 예측값을 추가합니다. 해당 과정의 로그파일은 `pyspark`로 관리되고, 이렇게 완성된 데이터베이스의 값을 다시 `streamlit`으로 읽어들여 코멘트 입력 및 통계 페이지에서 확인하게 됩니다.
+사용자가 우선 `streamlit`의 텍스트 업로드 페이지에서 입력을 보내면, 이는 
+1. `streamlit`에서 `fastapi`로 전달되어 `mariadb` 데이터베이스에 저장되고,
+2. 이 데이터베이스를 `airflow`가 주기적으로 읽어들여 모델을 적용하고 업데이트합니다.
+3. 해당 과정의 로그파일은 `pyspark`로 관리되고,
+4. 이렇게 완성된 데이터베이스의 값을 다시 `streamlit`으로 읽어들여 코멘트 입력 및 통계 페이지에서 확인할 수 있는 구조입니다.
 
 데이터베이스 내 테이블은 다음과 같이 형성되어 있습니다.
 - `num`: 입력된 각 데이터에 매겨지는 인덱스 번호
@@ -52,10 +56,9 @@ $ streamlit run src/threekcal_model/streamlit/main.py --server.port 9000
 
 ## 개발 관련 사항
 - 타임라인
+![스크린샷 2024-10-10 010952](https://github.com/user-attachments/assets/7bed00cb-272e-49e1-83f4-3986dd6bfcff)
 
-
-### `model` 리포지토리 코드 관련 사항
-- 
+※ 권한이 있는 이용자는 [프로젝트 schedule](https://github.com/orgs/ThreeKcal/projects/1/views/4)에서 확인할 수 있습니다.
 
 ### `troubleshooting`
-- 본 리포지토리의 `issues`, `pull request` 쪽을 참조해 주세요.
+- 본 리포지토리 및 연관 리포지토리들의 `issues`, `pull request` 쪽을 참조해 주세요.
