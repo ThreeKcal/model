@@ -55,7 +55,7 @@ $ streamlit run src/threekcal_model/streamlit/main.py --server.port 9000
 ```
 
 ## 개발 관련 사항
-- 타임라인
+### 타임라인
 ![스크린샷 2024-10-10 010952](https://github.com/user-attachments/assets/7bed00cb-272e-49e1-83f4-3986dd6bfcff)
 
 ※ 권한이 있는 이용자는 [프로젝트 schedule](https://github.com/orgs/ThreeKcal/projects/1/views/4)에서 확인할 수 있습니다.
