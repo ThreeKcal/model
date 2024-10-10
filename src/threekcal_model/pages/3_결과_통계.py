@@ -195,7 +195,7 @@ try:
 # 사용할 수 없는 이유와 사용하는 방법 
 # ROC curve를 사용하려면 prediction_score를 가져올 때 모든 감정 카테고리별 예측 가능도 점수를 가져와야 함 y_true에 값에는 실제 레이블 값에 대하여 encoder로 fit 한 더미변수 y_pred에는y_true 행의 값마다 카테고리별 속할 확률이 적혀 있어야 함 현재 데이터셋으로는 불가능 
 
-except requests.exceptions.ConnectTimeout:
+except requests.exceptions.RequestException:
     st.write("서버와 연결이 되지 않아 빈 데이터프레임을 출력합니다.")
     data = []  # 빈 데이터 설정
     df = pd.DataFrame(data)
