@@ -26,7 +26,7 @@ def load_data():
                 else: 
                     st.write("Something went wrong!")
             except Exception as e:
-                st.write(f"[ERROR]: {e}")
+                st.write("서버가 불안정하여 DB에 연결할 수 없습니다. 나중에 다시 시도해주세요.")
 
         else:
             st.write("두 항목을 모두 입력해 주세요.")

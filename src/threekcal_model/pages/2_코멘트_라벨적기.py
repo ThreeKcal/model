@@ -127,7 +127,7 @@ def input_label(user, num):
             else:
                 st.write("모든 항목을 입력해 주세요.")
     except Exception as e:
-        st.error(f"Error: {e}")
+        st.error("서버가 불안정하여 DB에 연결할 수 없습니다. 나중에 다시 시도해주세요.")
 
 # Streamlit 애플리케이션 실행
 try:
