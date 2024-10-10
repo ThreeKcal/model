@@ -13,13 +13,15 @@ def load_data():
         d = r.json()
         return d
 
-    except ConnectionError:
+    #except ConnectionError:
+    # 모든 에러 통합 처리 
+    except requests.exceptions.RequestException:
         # 열 이름 리스트
         columns = ['num', 'comments', 'request_time', 'request_user', 'prediction_result', 'prediction_score', 'prediction_time', 'remark', 'label']
 
         # 빈 데이터프레임 생성
         df = pd.DataFrame(columns=columns)
-        st.write(df)
+        #st.write(df)
         return None
 
 # request_user 선택
